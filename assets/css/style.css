@@ -25,12 +25,25 @@ h1 {
     color:black;
     align-content: center;
     font-family: sans-serif;
-    /* box-sizing: border-box;
-    width: 50%;
-    border: 5px solid red;
-    float: left;
-  } */
+  } 
 
-#questions {
-    font-family:
+  #timer {
+    opacity: .9;
+    background-color: rgba(223, 206, 174, 0.836);
+    color:black;
+    text-align: left;
+    align-content: center;
+    letter-spacing: 3px;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+    padding-left: 100px;
+  }
+
+  h3{
+      font-weight: 550;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+#start {
+    margin: 10px 0 40px 0;
 }
