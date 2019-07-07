@@ -27,7 +27,7 @@ h1 {
     font-family: sans-serif;
   } 
 
-  #timer {
+  #time-left {
     opacity: .9;
     background-color: rgba(223, 206, 174, 0.836);
     color:black;
