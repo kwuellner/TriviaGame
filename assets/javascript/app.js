@@ -5,12 +5,13 @@ var currentQuestion = 0;
 var timeRemaining = 20;
 var timerOn = false;
 var timerId = '';
+var nextQuestion = '';
 
-$("#time-left").hide();
-$("#start").on('click', beginGame);
-$(document).on('click', '.choices', guessVarify);
+$('#time-left').hide();
+$('#start').on('click', beginGame);
+$(document).on('click', '.option', guessVarify);
 
-
+console.log(nextQuestion);
 var trivia = [{
     question: "Which restaurant chain did Pam get banned from?",
     choices: ["Chili's", "Benihana", "Applebee's", "TGIF"],
@@ -89,8 +90,9 @@ function beginGame() {
     $('#timer').text(timeRemaining);
     $('#start').hide();
     $('#time-left').show();
-    var nextQuestion;
+    nextQuestion;
 }
+
 
 function nextQuestion() {
     timeRemaining = 20;
@@ -107,7 +109,7 @@ function nextQuestion() {
     var questionOptions = Object.values(choices)[currentQuestion];
 
     $.each(questionOptions, function (index, key) {
-        $('#choices').append($('<button class="btn btn-info btn-lg">' + key + '</button>'));
+        $('#choices').append($('<button class="btn btn-secondary btn-lg">' + key + '</button>'));
     })
 }
 
@@ -124,7 +126,7 @@ function runTime() {
         unansweredQuestions++;
         result = false;
         clearInterval(timerId);
-        resultId = setTimeout(guessResult, 1000);
+        resultsId = setTimeout(guessResult, 1000);
         $('#results').html('<h3>Time is up! The answer was ' + Object.values(answer)[currentQuestion] + '</h3>');
     }
 
@@ -158,7 +160,7 @@ function guessVarify() {
         $(this).addClass('btn-danger').removeClass('btn-info');
         trivia.incorrect++;
         clearInterval(timerId);
-        resultId = setTimeout(guessResult, 1000);
+        resultsId = setTimeout(guessResult, 1000);
         $('#results').html('<h3>Nope! Sorry!' + currentAnswer + '</h3>');
     }
 }
@@ -166,7 +168,7 @@ function guessVarify() {
 
 function guessResult() {
     currentQuestion++;
-    $('.choices').remove();
+    $('.option').remove();
     $('#results h3').remove();
 
     nextQuestion();

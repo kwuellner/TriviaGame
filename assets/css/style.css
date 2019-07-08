@@ -45,5 +45,9 @@ h1 {
   }
 
 #start {
-    margin: 10px 0 40px 0;
+    margin: 10px 0 75px 0;
+}
+
+.last-seconds {
+    color: red;
 }
